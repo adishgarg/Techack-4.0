@@ -21,8 +21,7 @@ export const generateChatCompletion = async (
     })) as ChatCompletionRequestMessage[];
     chats.push({ content: message, role: "user" });
     user.chats.push({ content: message, role: "user" });
-
-    // send all chats with new one to openAI API
+  // send all chats with new one to openAI API
     const config = configureOpenAI();
     const openai = new OpenAIApi(config);
     // get latest response
