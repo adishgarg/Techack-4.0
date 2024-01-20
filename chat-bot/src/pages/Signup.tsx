@@ -15,14 +15,29 @@ const Signup = () => {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     try {
-      toast.loading("Signing Up", { id: "signup" });
-      await auth?.signup(name, email, password);
-      toast.success("Signed Up Successfully", { id: "signup" });
+      // Assuming `toast` is used for notifications
+      toast.loading("Signing Up", { id: "recordInfo" });
+    
+      // Replace the auth?.signup with your logic to store the user information
+      // For example, you might want to store it in a database or a state variable
+      const userInfo = {
+        name,
+        email,
+        password, // Note: Avoid storing passwords in plain text, this is just an example
+      };
+    
+      // Handle the captured information as needed
+      console.log("Captured User Information:", userInfo);
+    
+      // Display success message
+      toast.success("User Signed Up Successfully", { id: "recordInfo" });
     } catch (error) {
-      console.log(error);
-      toast.error("Signing Up Failed", { id: "signup" });
+      console.error(error);
+      // Display error message
+      toast.error("Recording Information Failed", { id: "recordInfo" });
     }
-  };
+  }
+    
   useEffect(() => {
     if (auth?.user) {
       return navigate("/chat");

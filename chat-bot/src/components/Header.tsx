@@ -14,7 +14,7 @@ const Header = () => {
       <Toolbar sx={{ display: "flex" }}>
         <Logo />
         <div>
-          {auth?.isLoggedIn ? (
+          {window.location.pathname==='/chat' ? null : auth?.isLoggedIn ? (
             <>
               <NavigationLink
                 bg="#00fffc"
